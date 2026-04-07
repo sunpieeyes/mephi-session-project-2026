@@ -1,0 +1,58 @@
+    1  lsblk
+    2  sudo fdisk /dev/sdb
+    3  lsblk
+    4  sudo mkfs.ext4 -L MEPHI_DATA /dev/sdb1
+    5  sudo mkdir -p /data/mephi-web
+    6  sudo mount /dev/sdb1 /data/mephi-web
+    7  df -h
+    8  sudo blkid
+    9  sudo nano /etc/fstab
+   10  sudo blkid
+   11  sudo nano /etc/fstab
+   12  sudo blkid
+   13  sudo nano /etc/fstab
+   14  sudo blkid
+   15  sudo mount -a
+   16  sudo reboot
+   17  df -h
+   18  curl https://localhost
+   19  curl http://localhost
+   20  sudo systemctl restart nginx
+   21  sudo journalctl -u nginx -n 20
+   22  sudo journalctl -u nginx -n 20 > /tmp/nginx_recent_logs.txt
+   23  sudo systemctl restart nginx
+   24  sudo journalctl -u nginx --since "5 minutes ago"
+   25  sudo journalctl -u nginx --since "5 minutes ago" > /tmp/nginx_recent_logs.txt
+   26  sudo useradd mephi-admin
+   27  sudo passwd mephi-admin
+   28  sudo groupadd mephi-devs
+   29  sudo usermod -aG mephi-devs mephi-admin
+   30  sudo chown -R mephi-admin:mephi-devs /data/mephi-web
+   31  sudo chmod 2775 /data/mephi-web
+   32  ls -ld /data/mephi-web
+   33  getenforce
+   34  sudo semanage fcontext -a -t httpd_sys_content_t "/data/mephi-web(/.*)?"
+   35  sudo restorecon -Rv /data/mephi-web
+   36  ls -Zd /data/mephi-web
+   37  sudo chmod u-s /usr/sbin/tcpdump
+   38  sudo setcap cap_net_raw,cap_net_admin+ep /usr/sbin/tcpdump
+   39  getcap /usr/sbin/tcpdump
+   40  sudo -u mephi-admin tcpdump --help
+   41  sudo nano /etc/ssh/denied_users
+   42  sudo nano /etc/pam.d/login
+   43  su - root
+   44  sudo nano /etc/ssh/sshd_config
+   45  sudo systemctl restart sshd
+   46  grep PermitRootLogin /etc/ssh/sshd_config
+   47  sudo systemctl status sshd
+   48  ssh root@localhost
+   49  sudo nano /data/mephi-web/index.html
+   50  sudo nginx -t
+   51  sudo systemctl restart nginx
+   52  curl http://localhost
+   53  sudo nano /etc/nginx/nginx.conf
+   54  sudo nginx -t
+   55  sudo systemctl restart nginx
+   56  curl http://localhost
+   57  curl http://192.168.1.100
+   58  history > ~/project_history.txt
